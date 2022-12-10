@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = ["https://ve-xe-re-git-1-ngoctin2412test-dev.apps.sandbox.x8i5.p1.openshiftapps.com","localhost:8000"]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
+CSRF_TRUSTED_ORIGINS=["https://ve-xe-re-git-1-ngoctin2412test-dev.apps.sandbox.x8i5.p1.openshiftapps.com"]
 # SECURITY WARNING: keep the secret key used in production secret!
 # The SECRET_KEY is provided via an environment variable in OpenShift
 SECRET_KEY = os.getenv(
