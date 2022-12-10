@@ -9,8 +9,8 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^health$', health),
     url(r'^admin/', include(admin.site.urls)),
-    path(r'^admin/', include('customers.urls')),
-    path(r'^admin/', include('managers.urls')),
+    url(r'^', include('customers.urls')),
+    url(r'^manager/', include('managers.urls')),
 ]
 
 if settings.DEBUG:
