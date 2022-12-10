@@ -121,6 +121,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd1b1k56fqirhct',
+        'USER': 'sxjtupcyzheelh',
+        'PASSWORD': '27c58cb5aea75a870eb56e25edb1b82a014c441a159b12781b502f8acaf80054',
+        'HOST': 'ec2-34-230-153-41.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
