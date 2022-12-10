@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^health$', health),
     url(r'^admin/', include(admin.site.urls)),
+    path('', include('customers.urls')),
+    path('manager', include('managers.urls')),
 ]
 
 if settings.DEBUG:
