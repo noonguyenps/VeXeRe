@@ -55,12 +55,12 @@ class Ticket(models.Model):
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE, verbose_name="Schedule", null=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name="Customer")
 
-    # class Meta:
-    #     constraints = [
-    #         models.UniqueConstraint(
-    #             fields=['trip_id', 'seat_id', 'customer_id'], name='unique_trip_seat_customer_combination'
-    #         )
-    #     ]
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['trip_id', 'seat_id', 'customer_id'], name='unique_trip_seat_customer_combination'
+            )
+        ]
 
     def __unicode__(self):
         return self.content
