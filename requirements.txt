@@ -3,7 +3,7 @@ django-debug-toolbar==3.8.1
 gunicorn==19.5.0
 django-utils-six==2.0
 psycopg2-binary==2.8.5
-whitenoise==3.3.1
+whitenoise==6.2.0
 asgiref==3.5.2
 backports.zoneinfo==0.2.1
 mysqlclient==2.1.1
