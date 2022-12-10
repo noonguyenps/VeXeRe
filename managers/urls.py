@@ -1,11 +1,11 @@
-# from django.urls import path
+from django.urls import path
 from . import views
 
 app_name = 'managers'
 
 urlpatterns = [
-    # #Manager
-    # path('', views.index, name='index'),
+    #Manager
+    path('', views.index, name='index'),
     # path('/login', views.managerLogin, name='managerLogin'),
     # path('/login/loginrecord/', views.managerLoginRecord, name='managerLoginRecord'),
     # path('/signup', views.managerSignup,name='managerSignup'),
