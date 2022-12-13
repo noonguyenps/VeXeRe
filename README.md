@@ -14,15 +14,16 @@ This is a minimal Django 1.11 project. It was created with these steps:
 2. Manually install Django and other dependencies
 3. `pip freeze > requirements.txt`
 4. `django-admin startproject project .`
-3. Update `project/settings.py` to configure `SECRET_KEY`, `DATABASE` and `STATIC_ROOT` entries
-4. `./manage.py startapp welcome`, to create the welcome page's app
+5. Update `project/settings.py` to configure `SECRET_KEY`, `DATABASE` and `STATIC_ROOT` entries
+6. `./manage.py startapp welcome`, to create the welcome page's app
 
 From this initial state you can:
-* create new Django apps
-* remove the `welcome` app
-* rename the Django project
-* update settings to suit your needs
-* install more Python libraries and add them to the `requirements.txt` file
+
+- create new Django apps
+- remove the `welcome` app
+- rename the Django project
+- update settings to suit your needs
+- install more Python libraries and add them to the `requirements.txt` file
 
 ## Special files in this repository
 
@@ -46,7 +47,7 @@ The sample application code and templates in this repository contain database co
 
 ### Automatic test execution
 
-The sample application code and templates in this repository contain scripts that automatically execute tests via the postCommit hook.  These tests assume that they are being executed against a local test sqlite database. If alternate database credentials are supplied to the build, the tests could make undesirable changes to that database.
+The sample application code and templates in this repository contain scripts that automatically execute tests via the postCommit hook. These tests assume that they are being executed against a local test sqlite database. If alternate database credentials are supplied to the build, the tests could make undesirable changes to that database.
 
 ## Local development
 
@@ -55,33 +56,32 @@ To run this project in your development machine, follow these steps:
 1. (optional) Create and activate a [virtualenv](https://virtualenv.pypa.io/) (you may want to use [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/)).
 
 2. Ensure that the executable `pg_config` is available on your machine. You can check this using `which pg_config`. If not, install the dependency with one of the following.
-  - macOS: `brew install postgresql` using [Homebrew](https://brew.sh/)
-  - Ubuntu: `sudo apt-get install libpq-dev`
-  - [Others](https://stackoverflow.com/a/12037133/8122577)
+
+- macOS: `brew install postgresql` using [Homebrew](https://brew.sh/)
+- Ubuntu: `sudo apt-get install libpq-dev`
+- [Others](https://stackoverflow.com/a/12037133/8122577)
 
 3. Fork this repo and clone your fork:
 
-    `git clone https://github.com/sclorg/django-ex.git`
+   `git clone https://github.com/sclorg/django-ex.git`
 
 4. Install dependencies:
 
-    `pip install -r requirements.txt`
+   `pip install -r requirements.txt`
 
 5. Create a development database:
 
-    `./manage.py migrate`
+   `./manage.py migrate`
 
 6. If everything is alright, you should be able to start the Django development server:
 
-    `./manage.py runserver`
+   `./manage.py runserver`
 
 7. Open your browser and go to http://127.0.0.1:8000, you will be greeted with a welcome page.
-
 
 ## Deploying to OpenShift
 
 To follow the next steps, you need to be logged in to an OpenShift cluster and have an OpenShift project where you can work on.
-
 
 ### Using an application template
 
@@ -97,7 +97,7 @@ After adding your templates, you can go to your OpenShift web console, browse to
 
 Adjust the parameter values to suit your configuration. Most times you can just accept the default values, however you will probably want to set the `GIT_REPOSITORY` parameter to point to your fork and the `DATABASE_*` parameters to match your database configuration.
 
-Alternatively, you can use the command line to create your new app, assuming your OpenShift deployment has the default set of ImageStreams defined.  Instructions for installing the default ImageStreams are available [here](https://docs.okd.io/latest/install_config/imagestreams_templates.html).  If you are defining the set of ImageStreams now, remember to pass in the proper cluster-admin credentials and to create the ImageStreams in the 'openshift' namespace:
+Alternatively, you can use the command line to create your new app, assuming your OpenShift deployment has the default set of ImageStreams defined. Instructions for installing the default ImageStreams are available [here](https://docs.okd.io/latest/install_config/imagestreams_templates.html). If you are defining the set of ImageStreams now, remember to pass in the proper cluster-admin credentials and to create the ImageStreams in the 'openshift' namespace:
 
     oc new-app openshift/templates/django.json -p SOURCE_REPOSITORY_URL=<your repository location>
 
@@ -111,10 +111,9 @@ And you can see information about your deployment too:
 
     oc describe dc/django-example
 
-In the web console, the overview tab shows you a service, by default called "django-example", that encapsulates all pods running your Django application. You can access your application by browsing to the service's IP address and port.  You can determine these by running
+In the web console, the overview tab shows you a service, by default called "django-example", that encapsulates all pods running your Django application. You can access your application by browsing to the service's IP address and port. You can determine these by running
 
     oc get svc
-
 
 ### Without an application template
 
@@ -134,7 +133,6 @@ Service "django-ex" created at 172.30.16.213 with port mappings 8080.
 
 You can access your application by browsing to the service's IP address and port.
 
-
 ## Logs
 
 By default your Django application is served with gunicorn and configured to output its access log to stderr.
@@ -145,7 +143,6 @@ You can look at the combined stdout and stderr of a given pod with this command:
 
 This can be useful to observe the correct functioning of your application.
 
-
 ## Special environment variables
 
 ### APP_CONFIG
@@ -155,7 +152,6 @@ You can fine tune the gunicorn configuration through the environment variable `A
 ### DJANGO_SECRET_KEY
 
 When using one of the templates provided in this repository, this environment variable has its value automatically generated. For security purposes, make sure to set this to a random string as documented [here](https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-SECRET_KEY).
-
 
 ## One-off command execution
 
@@ -169,23 +165,23 @@ that make this script obsolete.
 
 Here is how you would run a command in a pod specified by label:
 
-1. Inspect the output of the command below to find the name of a pod that matches a given label:
+1.  Inspect the output of the command below to find the name of a pod that matches a given label:
 
         oc get pods -l <your-label-selector>
 
-2. Open a shell in the pod of your choice. Because of how the images produced
-  with CentOS and RHEL work currently, we need to wrap commands with `bash` to
-  enable any Software Collections that may be used (done automatically inside
-  every bash shell).
+2.  Open a shell in the pod of your choice. Because of how the images produced
+    with CentOS and RHEL work currently, we need to wrap commands with `bash` to
+    enable any Software Collections that may be used (done automatically inside
+    every bash shell).
 
-        oc exec -p <pod-name> -it -- bash
+          oc exec -p <pod-name> -it -- bash
 
-3. Finally, execute any command that you need and exit the shell.
+3.  Finally, execute any command that you need and exit the shell.
 
 Related GitHub issues:
+
 1. https://github.com/GoogleCloudPlatform/kubernetes/issues/8876
 2. https://github.com/openshift/origin/issues/2001
-
 
 The wrapper script combines the steps above into one. You can use it like this:
 
@@ -206,7 +202,6 @@ Or both together:
 
     POD_NAME=django-example POD_INDEX=2 ./run-in-container.sh ./manage.py shell
 
-
 ## Data persistence
 
 You can deploy this application without a configured database in your OpenShift project, in which case Django will use a temporary SQLite database that will live inside your application's container, and persist only until you redeploy your application.
@@ -217,11 +212,9 @@ To do that, you should add a properly configured database server or ask your Ope
 
 Redeploy your application to have your changes applied, and open the welcome page again to make sure your application is successfully connected to the database server.
 
-
 ## Looking for help
 
 If you get stuck at some point, or think that this document needs further details or clarification, you can give feedback and look for help using the channels mentioned in [the OKD repo](https://github.com/openshift/origin), or by filing an issue.
-
 
 ## License
 
