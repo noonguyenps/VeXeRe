@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
@@ -98,6 +99,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# gửi emailUser
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'voduytao3@gmail.com'
+EMAIL_HOST_PASSWORD = 'hcccxudvedynnwrr'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
