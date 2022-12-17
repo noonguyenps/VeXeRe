@@ -113,13 +113,16 @@ USE_L10N = True
 USE_TZ = True
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vexereonline',
-        'USER': 'postgresql',
-        'PASSWORD': 'postgresql',
-        'HOST': '172.30.3.204',
-        'PORT': '5432',
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'sampledb',  
+        'USER': 'sample',  
+        'PASSWORD': '123456',  
+        'HOST': '172.30.114.230',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }  
     }
 }
 
