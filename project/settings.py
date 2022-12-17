@@ -115,10 +115,10 @@ USE_TZ = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd1b1k56fqirhct',
-        'USER': 'sxjtupcyzheelh',
-        'PASSWORD': '27c58cb5aea75a870eb56e25edb1b82a014c441a159b12781b502f8acaf80054',
-        'HOST': 'ec2-34-230-153-41.compute-1.amazonaws.com',
+        'NAME': 'vexereonline',
+        'USER': 'postgresql',
+        'PASSWORD': 'postgresql',
+        'HOST': '172.30.3.204',
         'PORT': '5432',
     }
 }
